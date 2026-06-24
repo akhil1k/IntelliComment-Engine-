@@ -1,0 +1,53 @@
+{
+  "name": "intelli-comment",
+  "publisher": "Four-Bit-Crew",
+  "displayName": "IntelliComment",
+  "description": "Smart JSDoc injector and CFG visualizer",
+  "repository": {"type": "git", "url": "https://github.com/955-vivek/intellig"},
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "intellicomment-engine.analyzeFile",
+        "title": "Analyze Current File with IntelliComment Engine"
+      },
+      {
+        "command": "intellicomment-engine.showCFG",
+        "title": "Show CFG for Selected Function"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "intellicomment-engine.analyzeFile",
+        "key": "ctrl+alt+d",
+        "when": "editorTextFocus && editorLangId == javascript"
+      },
+      {
+        "command": "intellicomment-engine.showCFG",
+        "key": "ctrl+alt+g",
+        "when": "editorTextFocus && editorLangId == javascript"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "eslint": "^8.41.0"
+  },
+  "dependencies": {
+    "viz.js": "^2.1.2",
+    "espree": "^10.3.0",
+    "estraverse": "^5.3.0"
+  }
+}
